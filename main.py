@@ -21,6 +21,7 @@ means_init, covars_init, X = utils.initialize_with_kmeans(log_return_sequences)
 hmm_wrapper = Hmm()
 hmm_wrapper.init_hmm_with_kmeans(means_init, covars_init)
 hmm_wrapper.model.fit(X)
+hmm_wrapper.plot_hmm_log_likelihood()
 
 # Generate log return sequences from HMM
 n_sequences = generated_sequences.shape[0]
