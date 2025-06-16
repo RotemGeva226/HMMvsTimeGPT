@@ -10,7 +10,9 @@ class Hmm:
             covariance_type=covariance_type,
             n_iter=n_iter,
             init_params=init_params,
-            params=params
+            params=params,
+            tol=1e-6,
+            verbose=True
         )
 
     def init_startprob(self, startprob=None):
