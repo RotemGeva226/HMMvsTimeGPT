@@ -2,7 +2,7 @@ import numpy as np
 from hmmlearn.hmm import GaussianHMM
 
 class Hmm:
-    def __init__(self, n_components=3, n_iter=1000, covariance_type='full', init_params='', params='stmc'):
+    def __init__(self, n_components=3, n_iter=100, covariance_type='full', init_params='', params='stmc'):
         self.n_components = n_components
         self.model = GaussianHMM(
             n_components=n_components,
