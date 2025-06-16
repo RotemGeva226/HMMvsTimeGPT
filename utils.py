@@ -68,6 +68,13 @@ def compute_dtw_distance(p_returns: np.ndarray, q_returns: np.ndarray) -> float:
     return dtw.distance(p_returns, q_returns)
 
 def plot_metric_trends(results_dict):
+    """
+    results =
+    {hmm_wrapper.n_components:
+    {'kl_mean': np.mean(kl_scores),
+    'kl_std': np.std(kl_scores), 'w_mean': np.mean(wasserstein_scores),
+    'w_std': np.std(wasserstein_scores), 'dtw_mean': np.mean(dtw_scores),
+    'dtw_std': np.std(dtw_scores)}}"""
     components = sorted(results_dict.keys())
 
     kl_means = [results_dict[k]['kl_mean'] for k in components]
