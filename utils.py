@@ -3,7 +3,7 @@ import pandas as pd
 import yfinance as yf
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
-from scipy.stats import entropy, gaussian_kde
+from scipy.stats import entropy
 from scipy.stats import wasserstein_distance
 from dtaidistance import dtw
 
