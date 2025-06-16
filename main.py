@@ -9,7 +9,7 @@ df = utils.download_series_data_yfinance()
 
 # Generate multiple price sequences (TimeGPT)
 time_gpt_wrapper = TimeGPTWrapper()
-generated_sequences = time_gpt_wrapper.generate_multiple_forecasts(df)
+generated_sequences = time_gpt_wrapper.generate_multiple_forecasts(df, 300)
 
 # Convert prices to log returns for HMM
 log_return_sequences = utils.prices_to_log_returns(generated_sequences)
