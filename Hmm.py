@@ -1,5 +1,6 @@
 import numpy as np
 from hmmlearn.hmm import GaussianHMM
+import matplotlib.pyplot as plt
 
 class Hmm:
     def __init__(self, n_components=3, n_iter=100, covariance_type='full', init_params='', params='stmc'):
@@ -47,3 +48,19 @@ class Hmm:
             log_returns = X.flatten()
             sequences.append(log_returns)
         return np.array(sequences)
+
+    def plot_hmm_log_likelihood(self):
+        if not hasattr(self.model, "monitor_"):
+            raise ValueError("Model must be fitted before plotting log-likelihood.")
+
+        log_likelihoods = self.model.monitor_.history
+        iterations = list(range(len(log_likelihoods)))
+        plt.figure()
+        plt.plot(iterations, log_likelihoods, marker='o')
+        plt.xticks(iterations)
+        plt.xlabel("Iteration")
+        plt.ylabel("Log Likelihood")
+        plt.title("HMM Training Log-Likelihood")
+        plt.grid(True)
+        plt.tight_layout()
+        plt.show()
