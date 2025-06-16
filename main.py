@@ -4,10 +4,10 @@ import utils
 from TimeGPTWrapper import TimeGPTWrapper
 from Hmm import Hmm
 
-# 1. Download historical prices
+# Download historical prices
 df = utils.download_series_data_yfinance()
 
-# 2. Generate multiple price sequences (TimeGPT)
+# Generate multiple price sequences (TimeGPT)
 time_gpt_wrapper = TimeGPTWrapper()
 generated_sequences = time_gpt_wrapper.generate_multiple_forecasts(df)
 
