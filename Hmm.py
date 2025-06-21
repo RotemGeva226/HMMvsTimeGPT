@@ -3,7 +3,7 @@ from hmmlearn.hmm import GaussianHMM
 import matplotlib.pyplot as plt
 
 class Hmm:
-    def __init__(self, n_components=3, n_iter=100, covariance_type='full', init_params='', params='stmc'):
+    def __init__(self, n_components=3, n_iter=40, covariance_type='full', init_params='', params='stmc'):
         self.n_components = n_components
         self.model = GaussianHMM(
             n_components=n_components,
@@ -11,7 +11,7 @@ class Hmm:
             n_iter=n_iter,
             init_params=init_params,
             params=params,
-            tol=1e-6,
+            tol=1e-4,
             verbose=True
         )
 
@@ -62,7 +62,7 @@ class Hmm:
         plt.xticks(iterations)
         plt.xlabel("Iteration")
         plt.ylabel("Log Likelihood")
-        plt.title("HMM Training Log-Likelihood")
+        plt.title(f"HMM Training Log-Likelihood - {self.model.n_components} hidden states")
         plt.grid(True)
         plt.tight_layout()
         plt.show()
